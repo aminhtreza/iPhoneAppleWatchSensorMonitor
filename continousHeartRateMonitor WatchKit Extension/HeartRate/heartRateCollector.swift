@@ -28,6 +28,7 @@ class heartRateManager: NSObject, ObservableObject, HKLiveWorkoutBuilderDelegate
         }
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (Timer) in
             self.updatedHRValue = self.HR
+            sensorData["HR"] = self.HR
         }
     }
     

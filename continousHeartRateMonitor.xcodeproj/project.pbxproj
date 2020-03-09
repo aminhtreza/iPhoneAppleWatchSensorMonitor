@@ -33,6 +33,8 @@
 		88D3939E2416D27E0042E4CD /* mainWatchIFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3939D2416D27E0042E4CD /* mainWatchIFC.swift */; };
 		88D393A12416E4D00042E4CD /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D393A02416E4D00042E4CD /* MotionManager.swift */; };
 		88D393A32416E5000042E4CD /* iPhoneMotionIFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D393A22416E5000042E4CD /* iPhoneMotionIFC.swift */; };
+		88D393A62416F0670042E4CD /* PhonetoWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D393A52416F0670042E4CD /* PhonetoWatch.swift */; };
+		88D393A82416F0860042E4CD /* WatchConnectivityPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D393A72416F0860042E4CD /* WatchConnectivityPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		88D3939D2416D27E0042E4CD /* mainWatchIFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainWatchIFC.swift; sourceTree = "<group>"; };
 		88D393A02416E4D00042E4CD /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		88D393A22416E5000042E4CD /* iPhoneMotionIFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneMotionIFC.swift; sourceTree = "<group>"; };
+		88D393A52416F0670042E4CD /* PhonetoWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonetoWatch.swift; sourceTree = "<group>"; };
+		88D393A72416F0860042E4CD /* WatchConnectivityPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 		882C624B23FC53F800C5705A /* continousHeartRateMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				88D393A42416F0500042E4CD /* WatchConnectivity */,
 				88D3939F2416E4B90042E4CD /* Motion */,
 				882C624C23FC53F800C5705A /* AppDelegate.swift */,
 				882C628E23FC549C00C5705A /* continousHeartRateMonitor.entitlements */,
@@ -256,6 +261,15 @@
 				88D393A02416E4D00042E4CD /* MotionManager.swift */,
 			);
 			path = Motion;
+			sourceTree = "<group>";
+		};
+		88D393A42416F0500042E4CD /* WatchConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				88D393A52416F0670042E4CD /* PhonetoWatch.swift */,
+				88D393A72416F0860042E4CD /* WatchConnectivityPreview.swift */,
+			);
+			path = WatchConnectivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,8 +408,10 @@
 				882C624D23FC53F800C5705A /* AppDelegate.swift in Sources */,
 				882C624F23FC53F800C5705A /* SceneDelegate.swift in Sources */,
 				88D393A32416E5000042E4CD /* iPhoneMotionIFC.swift in Sources */,
+				88D393A82416F0860042E4CD /* WatchConnectivityPreview.swift in Sources */,
 				882C625123FC53F800C5705A /* ContentView.swift in Sources */,
 				88D393A12416E4D00042E4CD /* MotionManager.swift in Sources */,
+				88D393A62416F0670042E4CD /* PhonetoWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

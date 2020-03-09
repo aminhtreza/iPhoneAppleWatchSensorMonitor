@@ -9,6 +9,7 @@
 import Foundation
 import WatchConnectivity
 
+var sensorData: [String:String] = [:]
 
 class WatchtoPhone: NSObject, WCSessionDelegate {
     
@@ -39,4 +40,16 @@ class WatchtoPhone: NSObject, WCSessionDelegate {
         }
         lastMessage = CFAbsoluteTimeGetCurrent()
     }
+    
+    // function will be called using a timer to send at a reoccuring interval
+    func sendSensorDataToPhone() {
+        sendPhoneMessage(message: sensorData)
+    }
+    
 }
+
+//Dictionary to send everything to iPhone
+//var sensorData = ["HR":String, "roll":"--", "pitch":"--", "yaw":"--", "latitude":"--", "longitude":"--", "altitude":"--"]
+
+
+

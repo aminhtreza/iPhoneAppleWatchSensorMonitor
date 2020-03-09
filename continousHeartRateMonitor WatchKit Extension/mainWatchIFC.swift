@@ -18,7 +18,8 @@ struct mainWatchIFC: View {
     
     //Motion
     @ObservedObject var motionManager = MotionManager()
-    
+    @State var timer: Timer? = nil
+
     var body: some View {
         ScrollView{
             VStack{
@@ -30,8 +31,13 @@ struct mainWatchIFC: View {
                                         if self.workoutOn {
                                             self.HeartRateManager.startWorkout()
                                             self.collectionStatus = "Stop collecting"
+                                            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (Timer) in
+                                                watchToPhone.sendSensorDataToPhone()
+                                            })
+                                            
                                         } else {
-                                            print("Heart rate was last seen as: \(self.HeartRateManager.updatedHRValue)")
+                                            self.timer?.invalidate()
+                                            self.timer = nil
                                             self.HeartRateManager.stopWorkout()
                                             self.collectionStatus = "Start collecting"
                                         }
@@ -67,8 +73,11 @@ struct mainWatchIFC: View {
         }
 }
 
+
+
 struct mainWatchIFC_Previews: PreviewProvider {
     static var previews: some View {
         mainWatchIFC()
     }
 }
+

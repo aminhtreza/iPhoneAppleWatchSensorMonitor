@@ -39,36 +39,11 @@ class MotionManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func startQueuedMotionUpdates() {
        if motionManager.isDeviceMotionAvailable {
-        
-        print("Motion available")
-        print(motionManager.isGyroAvailable ? "Gyro available" : "Gyro NOT available")
-        print(motionManager.isAccelerometerAvailable ? "Accel available" : "Accel NOT available")
-        print(motionManager.isMagnetometerAvailable ? "Mag available" : "Mag NOT available")
-        
         self.motionManager.deviceMotionUpdateInterval = 1.0 / 60.0
         self.motionManager.showsDeviceMovementDisplay = true
-        
-        // if watch 5 or later: .xMagneticNorthZVertical
+        // if watch 5 or later: (using: .xMagneticNorthZVertical, ...
         self.motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: OperationQueue.current!, withHandler: { (data, error) in
             
-            /*
-             // Configure a timer to fetch the motion data.
-             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                 if let validData = data {
-                    // Get the attitude relative to the magnetic north reference frame.
-                    print("We got here")
-                    let roll = validData.attitude.roll
-                    let pitch = validData.attitude.pitch
-                    let yaw = validData.attitude.yaw
-                    
-                    
-                    self.Roll = String(Double(roll).rounded(toPlaces: 2))
-                    self.Pitch = String(Double(pitch).rounded(toPlaces: 2))
-                    self.Yaw = String(Double(yaw).rounded(toPlaces: 2))
-                    print("roll :\(self.Roll), pitch: \(self.Pitch), yaw: \(self.Yaw)")
-                 }
-             }
-            */
              if let validData = data {
                 // Get the attitude relative to the magnetic north reference frame.
                 print("We got here")
@@ -80,7 +55,10 @@ class MotionManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 self.Roll = String(Double(roll).rounded(toPlaces: 2))
                 self.Pitch = String(Double(pitch).rounded(toPlaces: 2))
                 self.Yaw = String(Double(yaw).rounded(toPlaces: 2))
-                print(self.Roll); print(self.Pitch); print(self.Yaw)
+
+                sensorData["roll"] = self.Roll
+                sensorData["yaw"] = self.Yaw
+                sensorData["pitch"] = self.Pitch
              }
                      
           })
@@ -101,11 +79,11 @@ class MotionManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.longitude = "\(round(location.coordinate.longitude * 1000) / 1000)"
             self.altitude = "\(round(location.altitude * 1000) / 1000)"
             
-            let locationData = ["altitude": self.altitude, "longitude": self.longitude,"latitude": self.latitude]
-            
-            watchToPhone.sendPhoneMessage(message: locationData)
-            
             // print("location changed: \(round(location.coordinate.latitude * 1000) / 1000), \(round(location.coordinate.longitude * 1000) / 1000), \(round(location.altitude * 1000) / 1000),Date: \(self.date)")
+            sensorData["altitude"] = self.altitude
+            sensorData["longitude"] = self.longitude
+            sensorData["latitude"] = self.latitude
+
         }
     }
 }
