@@ -15,6 +15,7 @@ var watchToPhone = WatchtoPhone()
 
 
 // Hey Ryan
+// Hey Amin
 class MotionManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var motionManager = CMMotionManager()
