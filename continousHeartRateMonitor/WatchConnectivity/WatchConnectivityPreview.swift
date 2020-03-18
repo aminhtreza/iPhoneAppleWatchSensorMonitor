@@ -4,10 +4,8 @@
 //
 //  Created by iMac on 3/9/20.
 //  Copyright © 2020 Amin Hamiditabar. All rights reserved.
-//
 
 import SwiftUI
-
 struct WatchConnectivityPreview: View {
     @ObservedObject var phonetoWatch = PhonetoWatch()
     

@@ -13,6 +13,8 @@ import WatchConnectivity
 
 var watchToPhone = WatchtoPhone()
 
+
+// Hey Ryan
 class MotionManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var motionManager = CMMotionManager()
